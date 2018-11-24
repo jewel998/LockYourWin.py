@@ -1,5 +1,5 @@
 # LockYourWin.py
-A python GUI to temporarily lockup your Windows PC at every startup, unless the desired password is entered.
+A python GUI virus to temporarily lockup your Windows PC at every startup, unless the desired password is entered.
 
 ## About the Application:
 The application blocks all the keystrokes when the app is run and runs at a full screen mode such that it's not possible to switch apps.
